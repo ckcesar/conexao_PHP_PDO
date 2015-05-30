@@ -11,7 +11,7 @@ if($con){
     if($gravar){
         echo"Gravou";
     }else{
-        echo"Erro!";
+        echo"Erro!....";
     }
 
 }
