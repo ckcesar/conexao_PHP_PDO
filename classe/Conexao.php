@@ -23,8 +23,10 @@ class Conexao{
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
-        $conexao = new PDO("mysql:host=$this->host;dbname=$this->database", $this->usuario, $this->senha, $conf);
-        return $conexao;
+        if (is_null($this->db))
+        	$this->db = new PDO("mysql:host=$this->host;dbname=$this->database", $this->usuario, $this->senha, $conf);
+
+        return $this->db;
     }
 
     public function Executar($sql){
